@@ -19,6 +19,8 @@ Vec3 Vec3::operator-(const Vec3& v) const {
   );
 }
 
+// define scalar multiplication and division
+
 Vec3 Vec3::operator*(float scalar) const {
   return Vec3(
     x*scalar,
@@ -35,6 +37,8 @@ Vec3 Vec3::operator/(float scalar) const {
   );
 }
 
+// create logic for dot and cross products
+
 float Vec3::dot(const Vec3& v) const{
   return x * v.x + y * v.y + z * v.z;
 }
@@ -46,6 +50,8 @@ Vec3 Vec3::cross(const Vec3& v) const{
     (x * v.y) - (y * v.x)
   );
 }
+
+// euclidean length and normalization
 
 float Vec3::length() const{
   return std::sqrt(x*x + y*y + z*z);
@@ -59,6 +65,18 @@ Vec3 Vec3::normalize() const{
 
   return Vec3(0.0f, 0.0f, 0.0f);
 }
+
+// define element-wise LERP
+
+Vec3 Vec3::lerp(Vec3 &v, float t) const{
+  return Vec3(
+    x + ((v.x-x)*t),
+    y + ((v.y-y)*t),
+    z + ((v.z-z)*t)
+  );
+}
+
+// create logic for outputting vec3
 
 std::ostream& operator<<(std::ostream& os, const Vec3& v) {
     os << "(" << v.x << ", " << v.y << ", " << v.z << ")";

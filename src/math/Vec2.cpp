@@ -44,6 +44,14 @@ Vec2 Vec2::normalize() const{
   return Vec2(0.0f, 0.0f);
 }
 
+// define lerp
+Vec2 Vec2::lerp(const Vec2& v, float t) const{
+  return Vec2(
+    x + ((v.x-x)*t),
+    y + ((v.y-y)*t)
+  );
+}
+
 // logic for printing
 std::ostream& operator<<(std::ostream& os, const Vec2& v) {
     os << "(" << v.x << ", " << v.y << ")";

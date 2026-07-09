@@ -37,6 +37,9 @@ struct Vec3{
   float length() const;
   Vec3 normalize() const;
 
+  // declare lerp
+  Vec3 lerp(Vec3 &v, float t) const;
+
   // printing
   friend std::ostream& operator << (std::ostream& os, const Vec3& v);
 };
